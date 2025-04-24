@@ -61,8 +61,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
-
 # Streamlit App Title
 st.title("🚀 Google-Like Unit Converter ⚡ Powered by Gemini 🤖")
 
@@ -78,7 +76,6 @@ unit_categories = {
     "Pressure": ["pascals", "bars", "atmospheres", "psi"],
     "Data Storage": ["bytes", "kilobytes", "megabytes", "gigabytes", "terabytes", "petabytes"]
 }
-
 
 # Dropdown to select category
 category = st.selectbox("Select unit type:", list(unit_categories.keys()))
@@ -118,6 +115,18 @@ if st.button("Convert"):
         if "Error" in result:
             st.error(result)
         else:
-            st.success(f"Converted value: {result}")
+            st.markdown(f"""
+            <div style="
+                background-color: #ffffff;
+                color: #003366;
+                font-weight: bold;
+                padding: 15px;
+                border-radius: 10px;
+                border: 3px solid #FFD700;
+                box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            ">
+                ✅ Converted Value: {result}
+            </div>
+            """, unsafe_allow_html=True)
     else:
         st.error("Please enter a valid number greater than 0.")
