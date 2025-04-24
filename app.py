@@ -11,7 +11,7 @@ api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
     api_key = st.secrets["GEMINI_API_KEY"]
 
-# Configure Gemini AI
+# Configure Gemini 
 genai.configure(api_key=api_key)
 
 st.markdown(
